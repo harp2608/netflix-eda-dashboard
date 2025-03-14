@@ -1,0 +1,12 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+
+# Data
+data/
+*.csv
+
+# Environments
+.env
+.venv/
