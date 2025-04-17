@@ -1,0 +1,41 @@
+name: Setup Netflix Dashboard
+
+on: [push]
+
+jobs:
+  setup:
+    runs-on: ubuntu-latest
+    env:
+      KAGGLE_USERNAME: ${{ secrets.KAGGLE_USERNAME }}
+      KAGGLE_KEY: ${{ secrets.KAGGLE_KEY }}
+
+    steps:
+    - name: Checkout repo
+      uses: actions/checkout@v3
+
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.11'
+
+    - name: Install dependencies
+      run: |
+        pip install -r requirements.txt
+        pip install kaggle streamlit
+
+    - name: Set up Kaggle credentials
+      run: |
+        mkdir -p ~/.kaggle
+        echo "{\"username\":\"$KAGGLE_USERNAME\", \"key\":\"$KAGGLE_KEY\"}" > ~/.kaggle/kaggle.json
+        chmod 600 ~/.kaggle/kaggle.json
+
+    - name: Download Netflix dataset
+      run: kaggle datasets download -d shivamb/netflix-shows
+
+    - name: Unzip dataset to /data/
+      run: |
+        mkdir -p data
+        unzip netflix-shows.zip -d data
+
+    - name: List downloaded files
+      run: ls -R data
