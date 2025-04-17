@@ -1,15 +1,25 @@
-import kagglehub
 import os
-import shutil
+import pandas as pd
 from kaggle.api.kaggle_api_extended import KaggleApi
 
-import pandas as pd
+# Define dataset path
+dataset_path = "netflix_titles.csv"
 
-import kagglehub
+# Download if not already present
+if not os.path.exists(dataset_path):
+    api = KaggleApi()
+    api.authenticate()
 
-# Download latest version
-path = netflix_titles.csv
+    # Replace with actual dataset info
+    api.dataset_download_file('shivamb/netflix-shows', file_name='netflix_titles.csv', path='.')
+    
+    # Unzip the downloaded file
+    import zipfile
+    with zipfile.ZipFile("netflix_titles.csv.zip", 'r') as zip_ref:
+        zip_ref.extractall('.')
 
-print("Path to dataset files:", path)
+# Load the CSV
+df = pd.read_csv(dataset_path)
+print(df.head())
 
     
