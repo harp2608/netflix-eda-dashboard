@@ -8,7 +8,7 @@ import pandas as pd
 import kagglehub
 
 # Download latest version
-path = kagglehub.dataset_download("shivamb/netflix-shows")
+path = netflix_titles.csv
 
 print("Path to dataset files:", path)
 
