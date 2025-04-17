@@ -11,7 +11,7 @@ def run_dashboard():
 def main():
     data_loader.download_file()
 
-    df = preprocess.load_data() #(file)
+    df = preprocess.load_data()
     df = preprocess.remove_record(df)
     df = preprocess.remove_duplicated(df)
     df = preprocess.convert_datatype(df)
