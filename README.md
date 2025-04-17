@@ -45,4 +45,4 @@ Preview of the interactive Streamlit dashboard analyzing Netflix titles.
 ![Dashboard Screenshot](screenshots/dashboard.png)
 
 ## Author
-Anna Nesterova | [GitHub](https://github.com/annanesta)
+Netflix Data Insights by Harpreet
