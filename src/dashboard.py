@@ -13,7 +13,8 @@ def load_data():
 
 def app():
     """EDA presentation"""
-    st.title("Netflix Dashboard 📺")
+   st.title("Netflix Data Dashboard 📺 | Harpreet Kaur")
+
 
     df = load_data()
 
