@@ -3,11 +3,12 @@ import os
 import shutil
 from kaggle.api.kaggle_api_extended import KaggleApi
 
+import pandas as pd
+
 def download_file():
-    # Download latest version
-    api = KaggleApi()
-    api.authenticate()  #using kaggle.json 
-    api.dataset_download_files('shivamb/netflix-shows', path='data/', unzip=True)
+    # Load the file directly from your repo (after adding it to /data/)
+    df = pd.read_csv("data/netflix_titles.csv")
+    return df
 
 
     
