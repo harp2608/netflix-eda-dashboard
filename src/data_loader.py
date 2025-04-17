@@ -5,9 +5,11 @@ from kaggle.api.kaggle_api_extended import KaggleApi
 
 import pandas as pd
 
-def download_file():
-    df = pd.read_csv("netflix_titles.csv")
-    return df
+import kagglehub
 
+# Download latest version
+path = kagglehub.dataset_download("shivamb/netflix-shows")
+
+print("Path to dataset files:", path)
 
     
